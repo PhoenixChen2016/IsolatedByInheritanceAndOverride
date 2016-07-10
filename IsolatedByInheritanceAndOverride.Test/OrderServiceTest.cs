@@ -82,7 +82,7 @@ namespace IsolatedByInheritanceAndOverride.Test
 				}
 			};
 			target.SetOrders(data);
-			var dao = new BookDaoStub();
+			var dao = Substitute.For<BookDaoBase>();
 
 			target.SetDao(dao);
 
@@ -91,8 +91,7 @@ namespace IsolatedByInheritanceAndOverride.Test
 
 
 			// assert
-			var expected = 2;
-			Assert.AreEqual(expected, dao.CallCount);
+			dao.Received(2).Insert(Arg.Is<Order>(order => order.Type == "Book"));
 		}
 	}
 }

@@ -8,14 +8,14 @@ namespace IsolatedByInheritanceAndOverride.Test
 	class OrderServiceStub : OrderService
 	{
 		private List<Order> m_Orders = null;
-		private BookDao m_Dao = null;
+		private BookDaoBase m_Dao = null;
 
 		public void SetOrders(List<Order> orders)
 		{
 			this.m_Orders = orders;
 		}
 
-		public void SetDao(BookDao dao)
+		public void SetDao(BookDaoBase dao)
 		{
 			this.m_Dao = dao;
 		}
@@ -25,7 +25,7 @@ namespace IsolatedByInheritanceAndOverride.Test
 			return m_Orders ?? base.GetOrders();
 		}
 
-		protected override BookDao GetBookDao()
+		protected override BookDaoBase GetBookDao()
 		{
 			return m_Dao ?? base.GetBookDao();
 		}

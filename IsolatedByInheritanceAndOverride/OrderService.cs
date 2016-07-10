@@ -26,7 +26,7 @@ namespace IsolatedByInheritanceAndOverride
 			}
 		}
 
-		protected virtual BookDao GetBookDao() => new BookDao();
+		protected virtual BookDaoBase GetBookDao() => new BookDao();
 
 
 		protected virtual List<Order> GetOrders()
@@ -83,9 +83,14 @@ namespace IsolatedByInheritanceAndOverride
 		public string CustomerName { get; set; }
 	}
 
-	public class BookDao
+	public abstract class BookDaoBase
 	{
-		protected internal virtual void Insert(Order order)
+		internal abstract void Insert(Order order);
+	}
+
+	public class BookDao : BookDaoBase
+	{
+		override internal void Insert(Order order)
 		{
 			// directly depend on some web service
 			//var client = new HttpClient();

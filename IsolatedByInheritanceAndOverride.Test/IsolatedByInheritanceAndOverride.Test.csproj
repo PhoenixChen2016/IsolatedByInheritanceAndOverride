@@ -60,7 +60,6 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="BookDaoStub.cs" />
     <Compile Include="OrderServiceStub.cs" />
     <Compile Include="OrderServiceTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
