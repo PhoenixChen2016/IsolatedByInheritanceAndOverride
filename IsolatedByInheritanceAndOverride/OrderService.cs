@@ -11,7 +11,6 @@ namespace IsolatedByInheritanceAndOverride
 	public class OrderService
 	{
 		private string _filePath = @"C:\temp\testOrders.csv";
-		private IBookDao _Dao;
 
 		public void SyncBookOrders()
 		{
